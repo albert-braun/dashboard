@@ -4,7 +4,7 @@
 
 **Live demo:** [https://albert-braun.github.io/dashboard/](https://albert-braun.github.io/dashboard/)
 
-The site is built from `main` and published to the `gh-pages` branch. Enable it once in GitHub: **Settings → Pages → Deploy from a branch → `gh-pages` / `/ (root)` → Save**.
+Turn the demo on once (repo owner only): [Settings → Pages](https://github.com/albert-braun/dashboard/settings/pages) → **Source: GitHub Actions** → Save. After that, every push to `main` republishes the site.
 
 Aegis is a modern operations console for monitoring infrastructure health, network traffic, and security events. It is a front-end simulation of a SOC / DevOps panel: live KPI cards, streaming charts, a Linux-style security journal, and a one-click DDoS attack drill.
 
@@ -48,7 +48,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5173/dashboard/](http://localhost:5173/dashboard/).
+Open [http://localhost:5173](http://localhost:5173).
 
 The production site is published automatically to GitHub Pages on every push to `main`: [https://albert-braun.github.io/dashboard/](https://albert-braun.github.io/dashboard/).
 

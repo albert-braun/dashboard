@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/dashboard/',
+  base: process.env.GITHUB_PAGES === 'true' ? '/dashboard/' : '/',
   plugins: [react(), tailwindcss()],
 })
