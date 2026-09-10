@@ -1,0 +1,257 @@
+import { Cpu, Globe, Server, ShieldCheck } from 'lucide-react'
+import type {
+  IncidentPoint,
+  NotificationItem,
+  ProtocolSlice,
+  SecurityLog,
+  ServerNode,
+  StatMetric,
+  ThreatSlice,
+  TrafficPoint,
+} from '../types'
+
+export const STAT_METRICS: readonly StatMetric[] = [
+  {
+    id: 'nodes',
+    label: 'Servers online',
+    value: '7 / 8',
+    delta: '1 degraded',
+    trend: 'up',
+    icon: Server,
+    accent: 'neon',
+  },
+  {
+    id: 'threats',
+    label: 'Threats blocked',
+    value: '1,284',
+    delta: '+18% vs yesterday',
+    trend: 'up',
+    icon: ShieldCheck,
+    accent: 'cyan',
+  },
+  {
+    id: 'cpu',
+    label: 'Average CPU load',
+    value: '37%',
+    delta: '−4% last hour',
+    trend: 'down',
+    icon: Cpu,
+    accent: 'info',
+  },
+  {
+    id: 'latency',
+    label: 'Network latency',
+    value: '42 ms',
+    delta: 'stable',
+    trend: 'neutral',
+    icon: Globe,
+    accent: 'warn',
+  },
+]
+
+export const SERVERS: readonly ServerNode[] = [
+  {
+    id: 'fra-01',
+    name: 'edge-fra-01',
+    region: 'Frankfurt',
+    role: 'Edge',
+    status: 'online',
+    cpu: 28,
+    memory: 41,
+    uptime: '47d 12h',
+  },
+  {
+    id: 'ams-02',
+    name: 'api-ams-02',
+    region: 'Amsterdam',
+    role: 'API',
+    status: 'online',
+    cpu: 44,
+    memory: 62,
+    uptime: '31d 04h',
+  },
+  {
+    id: 'hel-03',
+    name: 'db-hel-03',
+    region: 'Helsinki',
+    role: 'Database',
+    status: 'online',
+    cpu: 51,
+    memory: 73,
+    uptime: '90d 18h',
+  },
+  {
+    id: 'waw-04',
+    name: 'siem-waw-04',
+    region: 'Warsaw',
+    role: 'SIEM',
+    status: 'online',
+    cpu: 33,
+    memory: 48,
+    uptime: '12d 09h',
+  },
+  {
+    id: 'lon-05',
+    name: 'cdn-lon-05',
+    region: 'London',
+    role: 'CDN',
+    status: 'degraded',
+    cpu: 81,
+    memory: 69,
+    uptime: '8d 21h',
+  },
+  {
+    id: 'prg-06',
+    name: 'auth-prg-06',
+    region: 'Prague',
+    role: 'Auth',
+    status: 'online',
+    cpu: 22,
+    memory: 35,
+    uptime: '64d 02h',
+  },
+  {
+    id: 'vie-07',
+    name: 'worker-vie-07',
+    region: 'Vienna',
+    role: 'Worker',
+    status: 'online',
+    cpu: 39,
+    memory: 44,
+    uptime: '19d 15h',
+  },
+  {
+    id: 'sto-08',
+    name: 'backup-sto-08',
+    region: 'Stockholm',
+    role: 'Backup',
+    status: 'online',
+    cpu: 12,
+    memory: 29,
+    uptime: '120d 06h',
+  },
+]
+
+export const SECURITY_LOGS: readonly SecurityLog[] = [
+  {
+    id: 'log-01',
+    timestamp: '02:14:08',
+    severity: 'critical',
+    source: 'WAF / edge-fra-01',
+    event: 'SSH brute-force from 185.244.xx.xx — IP blocked',
+  },
+  {
+    id: 'log-02',
+    timestamp: '02:11:41',
+    severity: 'warning',
+    source: 'IDS / api-ams-02',
+    event: 'Suspicious User-Agent, 42 requests in 8s',
+  },
+  {
+    id: 'log-03',
+    timestamp: '01:58:22',
+    severity: 'info',
+    source: 'Auth / auth-prg-06',
+    event: 'SOC-1 operator signed in successfully (MFA)',
+  },
+  {
+    id: 'log-04',
+    timestamp: '01:44:09',
+    severity: 'warning',
+    source: 'TLS / cdn-lon-05',
+    event: 'TLS certificate expires in 12 days',
+  },
+  {
+    id: 'log-05',
+    timestamp: '01:21:55',
+    severity: 'critical',
+    source: 'SIEM / siem-waw-04',
+    event: 'Anomalous outbound traffic 9.4 Gbps — rate-limit engaged',
+  },
+  {
+    id: 'log-06',
+    timestamp: '00:57:13',
+    severity: 'info',
+    source: 'Patch / worker-vie-07',
+    event: 'Security patch applied: kernel 6.8.12',
+  },
+  {
+    id: 'log-07',
+    timestamp: '00:33:40',
+    severity: 'warning',
+    source: 'IAM / auth-prg-06',
+    event: 'Privilege-escalation attempt denied',
+  },
+  {
+    id: 'log-08',
+    timestamp: '00:12:06',
+    severity: 'info',
+    source: 'Backup / backup-sto-08',
+    event: 'Nightly snapshot completed, 1.8 TB',
+  },
+]
+
+export const TRAFFIC_SERIES: readonly TrafficPoint[] = [
+  { time: '18:00', inbound: 420, outbound: 310, blocked: 18 },
+  { time: '19:00', inbound: 510, outbound: 340, blocked: 22 },
+  { time: '20:00', inbound: 640, outbound: 390, blocked: 41 },
+  { time: '21:00', inbound: 580, outbound: 410, blocked: 27 },
+  { time: '22:00', inbound: 490, outbound: 360, blocked: 19 },
+  { time: '23:00', inbound: 430, outbound: 300, blocked: 15 },
+  { time: '00:00', inbound: 390, outbound: 280, blocked: 12 },
+  { time: '01:00', inbound: 410, outbound: 295, blocked: 31 },
+  { time: '02:00', inbound: 560, outbound: 330, blocked: 54 },
+  { time: '03:00', inbound: 470, outbound: 320, blocked: 24 },
+  { time: '04:00', inbound: 450, outbound: 305, blocked: 16 },
+  { time: '05:00', inbound: 520, outbound: 350, blocked: 21 },
+]
+
+export const PROTOCOL_SLICES: readonly ProtocolSlice[] = [
+  { name: 'HTTPS', value: 64, color: '#22d3ee' },
+  { name: 'SSH', value: 18, color: '#22f0a0' },
+  { name: 'FTP', value: 7, color: '#fbbf24' },
+  { name: 'DNS', value: 11, color: '#3b82f6' },
+]
+
+export const THREAT_SLICES: readonly ThreatSlice[] = [
+  { name: 'Critical', value: 8, color: '#ff4d6d' },
+  { name: 'Warning', value: 21, color: '#fbbf24' },
+  { name: 'Info', value: 47, color: '#22d3ee' },
+]
+
+export const INCIDENT_SERIES: readonly IncidentPoint[] = [
+  { day: 'Mon', blocked: 820, alerts: 64 },
+  { day: 'Tue', blocked: 910, alerts: 71 },
+  { day: 'Wed', blocked: 740, alerts: 52 },
+  { day: 'Thu', blocked: 1020, alerts: 88 },
+  { day: 'Fri', blocked: 1284, alerts: 96 },
+  { day: 'Sat', blocked: 610, alerts: 41 },
+  { day: 'Sun', blocked: 540, alerts: 33 },
+]
+
+export const INITIAL_NOTIFICATIONS: readonly NotificationItem[] = [
+  {
+    id: 'n-1',
+    title: 'Brute-force blocked',
+    message: 'WAF dropped 214 SSH attempts on edge-fra-01',
+    time: '2 min',
+    read: false,
+    severity: 'critical',
+  },
+  {
+    id: 'n-2',
+    title: 'CDN load spike',
+    message: 'cdn-lon-05: CPU 81%, autoscale engaged',
+    time: '11 min',
+    read: false,
+    severity: 'warning',
+  },
+  {
+    id: 'n-3',
+    title: 'Patch applied',
+    message: 'worker-vie-07 updated with zero downtime',
+    time: '48 min',
+    read: true,
+    severity: 'info',
+  },
+]
