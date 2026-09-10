@@ -4,6 +4,8 @@
 
 **Live demo:** [https://albert-braun.github.io/dashboard/](https://albert-braun.github.io/dashboard/)
 
+The site is built from `main` and published to the `gh-pages` branch. Enable it once in GitHub: **Settings → Pages → Deploy from a branch → `gh-pages` / `/ (root)` → Save**.
+
 Aegis is a modern operations console for monitoring infrastructure health, network traffic, and security events. It is a front-end simulation of a SOC / DevOps panel: live KPI cards, streaming charts, a Linux-style security journal, and a one-click DDoS attack drill.
 
 Dark theme is the default (near-black surfaces with neon green, cyan, and red accents). Light theme is available from the header or Settings.
