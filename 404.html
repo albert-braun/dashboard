@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/dashboard/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07090d" />
+    <title>Aegis · Cyber Ops Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/dashboard/assets/index-hkQ-ut27.js"></script>
+    <link rel="stylesheet" crossorigin href="/dashboard/assets/index-D9q1p2Ax.css">
+  </head>
+  <body>
+    <script>
+      try {
+        var storedTheme = localStorage.getItem('aegis-theme')
+        if (storedTheme === 'light') {
+          document.documentElement.classList.remove('dark')
+          document.documentElement.classList.add('light')
+          document.documentElement.style.colorScheme = 'light'
+        }
+      } catch (error) {
+        /* keep default dark theme */
+      }
+    </script>
+    <div id="root"></div>
+  </body>
+</html>
