@@ -2,6 +2,8 @@
 
 **Real-time CyberSecurity & DevOps Dashboard**
 
+**Live demo:** [https://albert-braun.github.io/dashboard/](https://albert-braun.github.io/dashboard/)
+
 Aegis is a modern operations console for monitoring infrastructure health, network traffic, and security events. It is a front-end simulation of a SOC / DevOps panel: live KPI cards, streaming charts, a Linux-style security journal, and a one-click DDoS attack drill.
 
 Dark theme is the default (near-black surfaces with neon green, cyan, and red accents). Light theme is available from the header or Settings.
@@ -44,7 +46,9 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173).
+Open [http://localhost:5173/dashboard/](http://localhost:5173/dashboard/).
+
+The production site is published automatically to GitHub Pages on every push to `main`: [https://albert-braun.github.io/dashboard/](https://albert-braun.github.io/dashboard/).
 
 | Script | Command | Purpose |
 | --- | --- | --- |
